@@ -1,0 +1,8 @@
+{
+  "name": "calltronix",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "repository": "https://github.com/Tevinthuku/calltronix.git",
+  "author": "Tevinthuku <tevinthuku@gmail.com>"
+}
