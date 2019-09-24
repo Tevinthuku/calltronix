@@ -3,7 +3,7 @@
 const { SingleTableDb } = require("./db");
 const { FileContentFormatter } = require("./fileOperations");
 
-const ab = new SingleTableDb();
-const c = new FileContentFormatter();
+const singleTableDbObject = new SingleTableDb();
+const formatFileContent = new FileContentFormatter();
 
-ab.insertItems(c.formatToDbInsertionFormat());
+singleTableDbObject.insertItems(formatFileContent.formatToDbInsertionFormat());
