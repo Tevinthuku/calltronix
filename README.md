@@ -18,3 +18,9 @@
 #### Question 2.
 1. Run `npm run start_question2`.
 2. Open up a GUI / view the inserted data via the terminal under the tables `report` and `client`.
+
+
+#### Question 3.
+1. Make sure you have run question 2 first.
+2. Run `npm run start_question3`.
+3. Open your browser on localhost port 3000
