@@ -1,9 +1,9 @@
 
 
-const { SingleTableDb } = require("./db");
-const { FileContentFormatter } = require("./fileOperations");
+const { SingleTableDb } = require("./db/singleTable");
+const { SingleTableFileContentFormatter } = require("./fileOperations");
 
-const ab = new SingleTableDb();
-const c = new FileContentFormatter();
+const singleTableDbObject = new SingleTableDb();
+const formatFileContent = new SingleTableFileContentFormatter();
 
-ab.insertItems(c.formatToDbInsertionFormat());
+singleTableDbObject.insertItems(formatFileContent.formatToDbInsertionFormat());

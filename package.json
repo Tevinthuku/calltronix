@@ -6,7 +6,8 @@
   "repository": "https://github.com/Tevinthuku/calltronix.git",
   "author": "Tevinthuku <tevinthuku@gmail.com>",
   "scripts": {
-    "start_question1": "node -r dotenv/config question1.js"
+    "start_question1": "node -r dotenv/config question1.js",
+    "start_question2": "node -r dotenv/config question2.js"
   },
   "dependencies": {
     "pg": "^7.12.1"
