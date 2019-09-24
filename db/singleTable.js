@@ -1,21 +1,10 @@
-const Pool = require("pg").Pool;
-
-class DbResponse {
-    static handleInsertionResponse(err) {
-        if(err) {
-            console.error(err);
-            return;
-        }
-        console.log("successfully inserted the data");
-    }
-}
+const DbResponse = require("./dbResponse").DbResponse;
+const pool = require("./dbInitialization").pool;
 
 class SingleTableDb extends DbResponse{
     constructor(tableName="singlereporttable") {
         super();
-        this.pool = new Pool({
-            connectionString: process.env.POSTGRES_DATABASE_URL
-        });
+        this.pool = pool;
         this.tableName = tableName;
         this.tableCreationQuery = `CREATE TABLE 
             IF NOT EXISTS ${this.tableName} 
@@ -59,6 +48,6 @@ class SingleTableDb extends DbResponse{
              data,
              SingleTableDb.handleInsertionResponse)
     }
-
 }
+
 module.exports = { SingleTableDb };
