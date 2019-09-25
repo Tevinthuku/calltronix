@@ -33,3 +33,6 @@
 2. Run `npm run start_question3`.
 3. Open your browser on localhost port 3000
 ![image](https://user-images.githubusercontent.com/12128153/65558801-c1924380-df40-11e9-970d-67be044fa987.png)
+
+#### Schema
+Schema is in `db/schema.js`
