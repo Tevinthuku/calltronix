@@ -19,8 +19,8 @@
 
 #### Question 2.
 1. Run `npm run start_question2`.
-2. Open up a GUI / view the inserted data via the terminal under the tables `report` and `client`. 
-   Normalization has been done for the 2 tables `client` and `report`.
+2. Open up a GUI / view the inserted data via the terminal under the tables `client`, `report` , `question`, `questionsubtype`, `store`. 
+   Normalization has been done to create 5 tables `client`, `report` , `question`, `questionsubtype`, `store`.
 ![image](https://user-images.githubusercontent.com/12128153/65558733-9f002a80-df40-11e9-800c-192884a7104f.png)
 ![image](https://user-images.githubusercontent.com/12128153/65558747-a45d7500-df40-11e9-9b89-610d05d5452a.png)
 

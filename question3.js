@@ -7,9 +7,12 @@ const requestHandler = (request, response) => {
   response.writeHead(200, { "Content-Type": "text/html" });
   const query = `SELECT 
   clientname, mobileno, ticketid, 
-  storename, questiontype, 
-  questionsubtype, dispositionname, datecreated FROM client INNER JOIN report
-  ON client.id = report.client`;
+  store.storename, question.questiontype, 
+  questionsubtype.questionsubtype, dispositionname, datecreated FROM report 
+  INNER JOIN client ON client.id = report.client
+  INNER JOIN question ON question.id = report.questiontype
+  INNER JOIN questionsubtype ON questionsubtype.id = report.questionsubtype
+  INNER JOIN store ON store.id = report.storename`;
   const tablehead = `<thead>
                         <tr>
                             <th>clientname</th>
