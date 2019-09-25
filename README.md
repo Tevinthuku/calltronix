@@ -21,8 +21,12 @@
 1. Run `npm run start_question2`.
 2. Open up a GUI / view the inserted data via the terminal under the tables `client`, `report` , `question`, `questionsubtype`, `store`. 
    Normalization has been done to create 5 tables `client`, `report` , `question`, `questionsubtype`, `store`.
-![image](https://user-images.githubusercontent.com/12128153/65558733-9f002a80-df40-11e9-800c-192884a7104f.png)
-![image](https://user-images.githubusercontent.com/12128153/65558747-a45d7500-df40-11e9-9b89-610d05d5452a.png)
+![image](https://user-images.githubusercontent.com/12128153/65578387-641ce780-df7e-11e9-8935-90a7c08987a4.png)
+![image](https://user-images.githubusercontent.com/12128153/65578444-7860e480-df7e-11e9-9325-ecdb40902d80.png)
+![image](https://user-images.githubusercontent.com/12128153/65578465-831b7980-df7e-11e9-9f39-e710e6a97145.png)
+![image](https://user-images.githubusercontent.com/12128153/65578485-8adb1e00-df7e-11e9-9636-6cef151da9ff.png)
+![image](https://user-images.githubusercontent.com/12128153/65578521-97f80d00-df7e-11e9-9303-21f8509f9e9a.png)
+![image](https://user-images.githubusercontent.com/12128153/65578538-a0504800-df7e-11e9-8cf1-ec7e318cd165.png)
 
 #### Question 3.
 1. Make sure you have run question 2 first.
