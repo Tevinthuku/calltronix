@@ -1,27 +1,12 @@
 const DbResponse = require("./dbResponse").DbResponse;
 const pool = require("./dbInitialization").pool;
 
-class SingleTableDb extends DbResponse{
-    constructor(tableName="singlereporttable") {
-        super();
-        this.pool = pool;
-        this.tableName = tableName;
-        this.tableCreationQuery = `CREATE TABLE 
-            IF NOT EXISTS ${this.tableName} 
-            (
-            ticketId varchar primary key,
-            clientName varchar,
-            mobileNo varchar,
-            contactType varchar,
-            callType varchar,
-            sourceName varchar,
-            storeName varchar,
-            questionType varchar,
-            questionSubType varchar,
-            dispositionName varchar,
-            dateCreated varchar
-            )`;
-        this.insertQuery = `INSERT INTO ${this.tableName} 
+class SingleTableDb extends DbResponse {
+  constructor(tableName = "singlereporttable") {
+    super();
+    this.pool = pool;
+    this.tableName = tableName;
+    this.insertQuery = `INSERT INTO ${this.tableName} 
             (ticketId,clientName,mobileNo,
             contactType,callType, sourceName, storeName,questionType,
             questionSubType,dispositionName,dateCreated ) SELECT * FROM UNNEST (
@@ -36,18 +21,15 @@ class SingleTableDb extends DbResponse{
             $9::text[],
             $10::text[],
             $11::text[])`;
-        this.createTableIfDoesntexist = this.createTableIfDoesntexist.bind(this);
-        this.insertItems = this.insertItems.bind(this);
-    }
-     async createTableIfDoesntexist () {
-        return await this.pool.query(this.tableCreationQuery);
-    };
-     async insertItems(data) {
-         await this.createTableIfDoesntexist();
-         this.pool.query(this.insertQuery,
-             data,
-             SingleTableDb.handleInsertionResponse)
-    }
+    this.insertItems = this.insertItems.bind(this);
+  }
+  async insertItems(data) {
+    this.pool.query(
+      this.insertQuery,
+      data,
+      SingleTableDb.handleInsertionResponse
+    );
+  }
 }
 
 module.exports = { SingleTableDb };

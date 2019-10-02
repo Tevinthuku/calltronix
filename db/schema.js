@@ -36,10 +36,27 @@ dispositionName varchar,
 dateCreated varchar
 )`;
 
+const singleTable = `CREATE TABLE 
+IF NOT EXISTS singlereporttable
+(
+ticketId varchar primary key,
+clientName varchar,
+mobileNo varchar,
+contactType varchar,
+callType varchar,
+sourceName varchar,
+storeName varchar,
+questionType varchar,
+questionSubType varchar,
+dispositionName varchar,
+dateCreated varchar
+)`;
+
 module.exports = {
   clientTable,
   questionTable,
   questionSubTable,
   reportTable,
-  storeTable
+  storeTable,
+  singleTable
 };

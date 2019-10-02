@@ -10,6 +10,7 @@
 2. Create a postgres Database via your terminal or by using a GUI.
 4. Setup the connection string of the DB in the .env on the `POSTGRES_DATABASE_URL` key.
 3. Run `npm install` or `yarn install`.
+4. Run `npm run scaffold` to scaffold the application
 
 ####  Question 1.
 1. Run `npm run start_question1`.
