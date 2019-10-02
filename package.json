@@ -6,6 +6,7 @@
   "repository": "https://github.com/Tevinthuku/calltronix.git",
   "author": "Tevinthuku <tevinthuku@gmail.com>",
   "scripts": {
+    "scaffold": "node -r dotenv/config db/scaffold.js",
     "start_question1": "node -r dotenv/config question1.js",
     "start_question2": "node -r dotenv/config question2.js",
     "start_question3": "node -r dotenv/config question3.js"

@@ -2,18 +2,10 @@ const DbResponse = require("./dbResponse").DbResponse;
 const pool = require("./dbInitialization").pool;
 const schemas = require("./schema");
 
-const {
-  clientTable,
-  questionTable,
-  questionSubTable,
-  storeTable,
-  reportTable
-} = schemas;
 class NormalizedDatabase extends DbResponse {
   constructor() {
     super();
     this.pool = pool;
-    this.createTables = this.createTables.bind(this);
     this.insertData = this.insertData.bind(this);
     this.insertClients = this.insertClients.bind(this);
     this.insertReports = this.insertReports.bind(this);
@@ -25,25 +17,19 @@ class NormalizedDatabase extends DbResponse {
   static uniqueArray(arr) {
     return [...new Set(arr)];
   }
-  async createTables() {
-    await this.pool.query(clientTable);
-    await this.pool.query(questionTable);
-    await this.pool.query(questionSubTable);
-    await this.pool.query(storeTable);
-    await this.pool.query(reportTable);
-  }
 
   async insertData({ data, rawdata }) {
-    await this.createTables();
-    await this.insertClients(data);
-    await this.insertQuestions(data);
-    await this.insertSubQuestions(data);
-    await this.insertStores(data);
-    await this.insertReports(data, rawdata);
+    const clients = await this.insertClients(data);
+    const insertQuestions = await this.insertQuestions(data);
+    const insertSubQuestions = await this.insertSubQuestions(data);
+    const insertStores = await this.insertStores(data);
+    setTimeout(() => {
+      this.insertReports(data, rawdata);
+    }, 1000);
   }
 
-  async insertClients(data) {
-    await this.pool.query(
+  insertClients(data) {
+    return this.pool.query(
       `INSERT INTO client
         (clientName,mobileNo) SELECT * FROM UNNEST (
         $1::text[], 
@@ -53,8 +39,8 @@ class NormalizedDatabase extends DbResponse {
     );
   }
 
-  async insertQuestions(data) {
-    await this.pool.query(
+  insertQuestions(data) {
+    return this.pool.query(
       `INSERT INTO question
           (questionType) SELECT * FROM UNNEST (
           $1::text[])`,
@@ -63,8 +49,8 @@ class NormalizedDatabase extends DbResponse {
     );
   }
 
-  async insertSubQuestions(data) {
-    await this.pool.query(
+  insertSubQuestions(data) {
+    return this.pool.query(
       `INSERT INTO questionsubtype
             (questionSubType) SELECT * FROM UNNEST (
             $1::text[])`,
@@ -73,8 +59,8 @@ class NormalizedDatabase extends DbResponse {
     );
   }
 
-  async insertStores(data) {
-    await this.pool.query(
+  insertStores(data) {
+    return this.pool.query(
       `INSERT INTO store
             (storeName) SELECT * FROM UNNEST (
             $1::text[])`,
